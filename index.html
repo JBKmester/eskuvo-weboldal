@@ -11,7 +11,7 @@
             const userLang = navigator.language || navigator.userLanguage;
             
             // Ha a nyelv NEM magyar (azaz nem "hu"-val kezdődik)
-            if (!userLang.startsWith('hu')) {
+            if (userLang.startsWith('hu')) {
                 // Elmentjük, hogy megtörtént az automatikus átirányítás
                 sessionStorage.setItem('languageRedirected', 'true');
                 // Átdobjuk az angol oldalra
@@ -32,7 +32,6 @@
     <div class="container">
         <h1>Hamarosan érkeznek a képek 🤍</h1>
         <p class="subtitle">Köszönjük, hogy velünk ünnepeltetek!</p>
-        <p class="subtitle">Milán!</p>
     </div>
 
 </body>
