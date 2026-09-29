@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script>
+        // Ellenőrizzük, hogy volt-e már itt a felhasználó (hogy ne ragadjon végtelen ciklusban, ha manuálisan vált nyelvet)
+        if (!sessionStorage.getItem('languageRedirected')) {
+            // Lekérjük a böngésző nyelvét (pl. "hu", "hu-HU", "en-US", "de")
+            const userLang = navigator.language || navigator.userLanguage;
+            
+            // Ha a nyelv NEM magyar (azaz nem "hu"-val kezdődik)
+            if (!userLang.startsWith('hu')) {
+                // Elmentjük, hogy megtörtént az automatikus átirányítás
+                sessionStorage.setItem('languageRedirected', 'true');
+                // Átdobjuk az angol oldalra
+                window.location.href = "./index_en.html";
+            }
+        }
+    </script>
+
+    <title>Hamarosan... | Esküvőnk</title>
+    <link rel="stylesheet" href="./resources/style.css">
+</head>
+<body>
+
+    <div class="lang-switcher">
+        <span class="active">HU</span> | <a href="./index_en.html">EN</a>
+    </div>
+
+    <div class="container">
+        <h1>Hamarosan érkeznek a képek 🤍</h1>
+        <p class="subtitle">Köszönjük, hogy velünk ünnepeltetek!</p>
+    </div>
+
+</body>
+</html>
