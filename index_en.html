@@ -1,20 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon... | Our Wedding</title>
-    <link rel="stylesheet" href="./resources/style.css">
+    <title>Daniella és Bálint</title>
+    <link rel="stylesheet" href="../resources/style.css">
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <script>
+        // Ellenőrizzük, hogy volt-e már itt a felhasználó (hogy ne ragadjon végtelen ciklusban, ha manuálisan vált nyelvet)
+        if (!sessionStorage.getItem('languageRedirected')) {
+            // Lekérjük a böngésző nyelvét (pl. "hu", "hu-HU", "en-US", "de")
+            const userLang = navigator.language || navigator.userLanguage;
+            
+            // Ha a nyelv NEM magyar (azaz nem "hu"-val kezdődik)
+            if (!userLang.startsWith('hu')) {
+                // Elmentjük, hogy megtörtént az automatikus átirányítás
+                sessionStorage.setItem('languageRedirected', 'true');
+                // Átdobjuk az angol oldalra
+                window.location.href = "./index_en.html";
+            }
+        }
+    </script>
 </head>
 <body>
 
     <div class="lang-switcher">
-        <a href="./index.html">HU</a> | <span class="active">EN</span>
+        <span class="active">HU</span> | <a href="./index_en.html">EN</a>
     </div>
 
-    <div class="container">
-        <h1>The pictures are coming soon 🤍</h1>
-        <p class="subtitle">Thank you for celebrating with us!</p>
+
+
+    <div class="gallery-container">
+        <h1 class="gallery-title">Thank you for celebrating with us! 🤍</h1>
+        
+
+        <div class="upload-section">
+            <div class="upload-block">
+                <p class="gallery-subtitle">If you have any great photos or videos, feel free to send them to us here 😊</p>
+                <button id="upload_widget" class="custom-btn">
+                    <span class="upload-icon">📸</span> Upload Photos
+                </button>
+                <p class="upload-info">You can select multiple photos at once.</p>
+            </div>
+
+            <!--<hr class="section-divider">
+
+            <div class="upload-block">
+                <p class="gallery-subtitle">Ide kattintva egyszerre is le tudjátok tölteni az összes képet.</p>
+                <a href="../kepek/kepek.zip" download="Eskuvoi_Kepek.zip" class="custom-btn">
+                    <span class="upload-icon">📦</span> Összes kép letöltése (ZIP)
+                </a>
+            </div>-->
+        </div>
+
+        <div class="image-grid">
+        </div>
+
+        <h1 class="gallery-title">More photos and videos coming soon...</h1>
+
     </div>
+
+    <!-- Felugró ablak a teljes méretű képnek -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <button class="prev-btn" id="prev-btn">&#10094;</button> <!-- Bal nyíl -->
+        <img id="lightbox-img" src="" alt="Nagyított kép">
+        <button class="next-btn" id="next-btn">&#10095;</button> <!-- Jobb nyíl -->
+    </div>
+
+    <!-- Lebegő értesítő doboz -->
+    <div id="toast-notification" class="toast"></div>
+
+    <script src="../resources/galeria.js"></script>
+
 </body>
 </html>

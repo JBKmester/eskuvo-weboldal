@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <title>Daniella és Bálint</title>
+    <link rel="stylesheet" href="../resources/style.css">
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
     <script>
         // Ellenőrizzük, hogy volt-e már itt a felhasználó (hogy ne ragadjon végtelen ciklusban, ha manuálisan vált nyelvet)
         if (!sessionStorage.getItem('languageRedirected')) {
@@ -19,9 +21,6 @@
             }
         }
     </script>
-
-    <title>Hamarosan... | Esküvőnk</title>
-    <link rel="stylesheet" href="./resources/style.css">
 </head>
 <body>
 
@@ -29,10 +28,50 @@
         <span class="active">HU</span> | <a href="./index_en.html">EN</a>
     </div>
 
-    <div class="container">
-        <h1>Hamarosan érkeznek a képek 🤍</h1>
-        <p class="subtitle">Köszönjük, hogy velünk ünnepeltetek!</p>
+
+
+    <div class="gallery-container">
+        <h1 class="gallery-title">Köszönjük, hogy velünk ünnepeltetek! 🤍</h1>
+        
+
+        <div class="upload-section">
+            <div class="upload-block">
+                <p class="gallery-subtitle">Amennyiben Nektek is van jó képetek vagy videótok, akkor itt tudjátok elküldeni nekünk 😊</p>
+                <button id="upload_widget" class="custom-btn">
+                    <span class="upload-icon">📸</span> Képek feltöltése
+                </button>
+                <p class="upload-info">Egyszerre több kép is kiválasztható.</p>
+            </div>
+
+            <!--<hr class="section-divider">
+
+            <div class="upload-block">
+                <p class="gallery-subtitle">Ide kattintva egyszerre is le tudjátok tölteni az összes képet.</p>
+                <a href="../kepek/kepek.zip" download="Eskuvoi_Kepek.zip" class="custom-btn">
+                    <span class="upload-icon">📦</span> Összes kép letöltése (ZIP)
+                </a>
+            </div>-->
+        </div>
+
+        <div class="image-grid">
+        </div>
+
+        <h1 class="gallery-title">Hamarosan érkeznek a további képek illetve a videó is...</h1>
+
     </div>
+
+    <!-- Felugró ablak a teljes méretű képnek -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <button class="prev-btn" id="prev-btn">&#10094;</button> <!-- Bal nyíl -->
+        <img id="lightbox-img" src="" alt="Nagyított kép">
+        <button class="next-btn" id="next-btn">&#10095;</button> <!-- Jobb nyíl -->
+    </div>
+
+    <!-- Lebegő értesítő doboz -->
+    <div id="toast-notification" class="toast"></div>
+
+    <script src="../resources/galeria.js"></script>
 
 </body>
 </html>
