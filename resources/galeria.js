@@ -13,7 +13,7 @@ let aktualisIndex = 1; // Eltároljuk, hogy hányadik képen vagyunk
 
 // Ciklussal legeneráljuk a képeket
 for (let i = 1; i <= osszesKepSzama; i++) {
-    const kepUrl = `https://res.cloudinary.com/qjpbmone/image/upload/w_560,f_auto,q_auto/v1791391490/eskuvoi_${i}.jpg`;
+    const kepUrl = `https://res.cloudinary.com/qjpbmone/image/upload/h_840,f_auto,q_auto/v1791391490/eskuvoi_${i}.jpg`;
 
     const kepElem = document.createElement('div');
     kepElem.className = 'image-item';
