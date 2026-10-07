@@ -13,7 +13,7 @@ let aktualisIndex = 1; // Eltároljuk, hogy hányadik képen vagyunk
 
 // Ciklussal legeneráljuk a képeket
 for (let i = 1; i <= osszesKepSzama; i++) {
-    const kepUrl = `https://res.cloudinary.com/qjpbmone/image/upload/f_auto,q_auto/v1791391490/eskuvoi_${i}.jpg`;
+    const kepUrl = `https://res.cloudinary.com/qjpbmone/image/upload/w_560,f_auto,q_auto/v1791391490/eskuvoi_${i}.jpg`;
 
     const kepElem = document.createElement('div');
     kepElem.className = 'image-item';
@@ -33,20 +33,20 @@ for (let i = 1; i <= osszesKepSzama; i++) {
 // Kép megnyitása index alapján
 function kepMegnyitasa(index) {
     aktualisIndex = index;
-    lightboxImg.src = `https://res.cloudinary.com/qjpbmone/image/upload/v1791391490/eskuvoi_${aktualisIndex}.jpg`;
+    lightboxImg.src = `https://res.cloudinary.com/qjpbmone/image/upload/f_auto,q_auto/v1791391490/eskuvoi_${aktualisIndex}.jpg`;
     lightbox.classList.add('active');
 }
 
 // Következő kép funkció (körbejár: ha az utolsónál vagyunk, az elsőre ugrik)
 function kovetkezoKep() {
     aktualisIndex = (aktualisIndex % osszesKepSzama) + 1;
-    lightboxImg.src = `https://res.cloudinary.com/qjpbmone/image/upload/v1791391490/eskuvoi_${aktualisIndex}.jpg`;
+    lightboxImg.src = `https://res.cloudinary.com/qjpbmone/image/upload/f_auto,q_auto/v1791391490/eskuvoi_${aktualisIndex}.jpg`;
 }
 
 // Előző kép funkció
 function elozoKep() {
     aktualisIndex = aktualisIndex === 1 ? osszesKepSzama : aktualisIndex - 1;
-    lightboxImg.src = `https://res.cloudinary.com/qjpbmone/image/upload/v1791391490/eskuvoi_${aktualisIndex}.jpg`;
+    lightboxImg.src = `https://res.cloudinary.com/qjpbmone/image/upload/f_auto,q_auto/v1791391490/eskuvoi_${aktualisIndex}.jpg`;
 }
 
 // Nyilakra kattintás események
