@@ -1,4 +1,4 @@
-const osszesKepSzama = 155; 
+const osszesKepSzama = 351; 
 const imageGrid = document.querySelector('.image-grid');
 imageGrid.innerHTML = '';
 
